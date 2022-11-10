@@ -1,3 +1,4 @@
+#DEBUT  
 #on admet l'existance d'une fonction randint qui retourne un int aléatoire entre les deux int donnés en paramètres inclus
 #on admet l'existance d'une fonction input qui retourne une chaine de caractères mise en paramètre et demande à l'utilisateur d'écrire quelque chose et le retourne sous forme d'une chaine de caractères 
 #on défini une fonction shifumi qui ne prend aucun paramètre
@@ -26,3 +27,5 @@
             #on affiche que le joueur perd
             #on incrémente la valeur de score à l'indice 1
             #on affiche la liste scores
+    #afficher l'execution de la fonction
+    #FIN
