@@ -26,35 +26,3 @@
             #on affiche que le joueur perd
             #on incrémente la valeur de score à l'indice 1
             #on affiche la liste scores
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    def concatWithComma(str1=str, str2=str):
-    return (str1+", "+str2)
-
-
-#definir une fonction fibonacci qui prend en paramètre un nombre et qui retourne les 10 occurences la suite de fabinacci a partir de ce nombre
-    #definir i un index de depart
-    #definir chaineRetour telle qu'une chaine de caractere vide
-    #je defini un booleen tel que firstTurn est true
-    #tant que i
-        #alors j'attribue a une variable la valeur de tableau a l'indexe i
-        #si selected est egal a x et firstTurn est true
-            #alors on assigne a chaine retour la valeur de str(i)
-            #changer la valeur de firstTurn a false
-        #sinon si selected est egal a x
-            #alors j'assigne le retour de concatWithComma tel que : concatWithComma(chaineRetour, i) à chaineRetour
-        #j'increment i de 1
-    #retourner la chaine retour
