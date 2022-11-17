@@ -1,0 +1,246 @@
+#import d'une classe couleur nommé bcolors
+  #rose
+  #bleu
+  #Cyan
+  #Vert
+  #Jaune-verte
+  #beige
+  #Blanc
+  #Gras
+  #Sous-lignée
+
+#definir la fonction conway
+#on defini une liste vide plateau
+#pour i allant de 0 à x-1
+#alors on defini une liste vide row
+#pour j allant de 0 à x-1
+#on ajoute à row une valeur i/j
+#on ajoute row a la liste plateau
+#on retourne plateau
+
+#definir la fonction morpion
+  #Assigne à une variable grid le retour de la fonction conway(3)
+  #Éxécute la fonction visuel avec en paramètre grid
+  #Assigne à une variable player le retour de la fonction input("O or X ?")
+  #Effectuer une assertion qui vérifie si player est égal soit à 'O' soit à 'X'
+  #Si player est égal à 'O'
+    #alors pc est égal à 'X'
+  #Sinon
+    #pc est égal à 'O'
+  #Assigne à la variable dumbPlayer la valeur 0
+  #Si la fonction randint renvoie 1
+    #alors écris "You begin"
+    #Assigne à colonne le retour de la fonction integer input demandant au joueur s'il veut "colonne ? (0, 1 ou 2)" en bleu
+    #Assigne à ligne le retour de la fonction integer input demandant au joueur s'il veut "ligne ? (0, 1 ou 2)" en bleu
+    #Si player est égal à O
+      #Alors assigne à colonne le retour de la fonction input demandant s'il veut la "colonne ? (0, 1 ou 2)" en rose
+      #Alors assigne à ligne le retour de la fonction input demandant s'il veut la "ligne ? (0, 1 ou 2)" en rose
+    #Execute la fonction play avec les paramètres grid, player, ligne et colonne
+    #Assigne à la variable currentTurn la valeur pc
+    #--------------------------------------------
+    #Si le deuxième élément de la liste à l'index 2 de la liste grid est différent de player
+      #alors éxécuter la fonction play avec les paramètres grid, pc, 1, 1
+      #Assigne à dumbPlayer la valeur 1
+  #Sinon
+    #Écrire "npc starts"
+    #Assigne à la variable colonne la valeur 1
+    #Assigne à la variable ligne la valeur 1
+    #Execute la fonction play avec les paramètres grid, player, ligne et colonne
+    #Assigne à la variable currentTurn la valeur player
+    #Éxécute la fonction visuel avec en paramètre grid
+  #Assigne à la variable listOfPlayed une liste dans une liste qui contient les termes ligne colonne
+  #Si dumbPlayer est égal à 1
+    #Incrémente à la liste listOfPlayed une liste contenant [1,1]
+  #Assigne à la variable isPlaying la valeur 1
+  #Tant que isPlaying est égal à 1
+    #Si currentTurn est égal à player
+      #Assigne à fullGrid la valeur 0
+      #Pour i dans grid
+        #Pour j dans i
+          #Si j est égal à X ou j est égal à O 
+            #Ajoute à fullGrid la valeur 1
+      #Si fullGrid est égal à 9
+        #Écris "draw, ggwp"
+        #Assigne à endThisWhile la valeur 1
+        #Assigne à isPlaying la valeur 0
+        #Casse
+      #Si player est égal à 'X'
+        #alors assigne colonne au retour de la fonction integer input demandant au joueur s'il veut "colonne ? (0, 1 ou 2)" en bleu
+        #Assigne à ligne le retour de la fonction integer input demandant au joueur s'il veut "ligne ? (0, 1 ou 2)" en bleu
+    #Si player est égal à O
+        #assigne à colonne le retour de la fonction input demandant s'il veut la "colonne ? (0, 1 ou 2)" en rose
+        #assigne à ligne le retour de la fonction input demandant s'il veut la "ligne ? (0, 1 ou 2)" en rose
+      #Si la liste [ligne, colonne] se trouve dans listOfPlayed
+        #alors écrire "someone already played here :thinking:"
+      #Sinon si colonne est strictement supérieur à 2 ou ligne est strictement supérieur à 2
+        #Écrire "fin frérot... tu es cringe"
+      #Sinon
+        #Execute la fonction play avec les paramètres grid, player, ligne et colonne
+        #Ajoute à la liste listOfPlayed une liste contenant ligne et colonne
+        #Assigne à currentTurn la valeur pc
+    #Sinon
+      #""""cpu----------------------
+      #assigne à la variable endThisWhile la valeur 0
+      #assigne à la variable emergency le retour de checkGrid(grid)
+      #si emergency[0] est égal à pc
+        #si emergency[1] est égal 
+          #pour i dans la liste située à l'index 2 de la liste emergency qui est elle-même dans la liste grid
+            #Si i est différent de pc
+              #assigne à grid le retour de la fonction play prenant en paramètre grid, pc, emergency[2], grid[emergency[2]].index(i)
+              #Incrémente à listOfPlayed la liste comportant [emergency[2], grid[emergency[2]].index(i)]
+              #Assigne à currentTurn la valeur player
+        #Si l'élément à l'index 1 de la liste emergency est égal à "colonne"
+          #Alors pour i allant de 0 à 2
+            #Si l'élément à l'index 2 de la liste emergency de la ligne i de grid est différent de pc
+              #Assigne à grid le retour de la fonction play prenant en paramètre à grid, pc, i, et l'élément à l'index 2 d'emergency
+        #Si l'élément à l'index 1 de la liste emergency est égal à "diagonale"
+          #alors si l'élément à l'index 1 de la liste emergency est égal à 1
+            #pour i allant de 0 à 2
+              #Si l'élément i de la ligne i de la liste grid est différente de pc 
+                #Assigne à grid le retour de la fonction play prenant en paramètre grid, pc, i, i
+          #Si l'élément à l'index 1 de la liste emergency est égal à 2
+            #Pour i allant de 0 à 2
+              #Si l'élément 2-i à la ligne i de la liste grid est différente de pc
+                #Assigne à grid le retour de la fonction play prenant en paramètre grid, pc, i, 2-i
+      #Si l'élément à l'index 0 de la liste emergency est égal à player
+        #alors si l'élément à l'index 1 de la liste emergency est égal à ligne
+          #pour i dans l'élément à l'index 2 de la liste emergency qui est elle même dans la liste grid
+            #Si i est différent de player
+              #assigne à grid le retour de la fonction play prenant en paramètre grid, pc, emergency[2], grid[emergency[2]].index(i)
+              #Assigne à la variable currentTurn la valeur player
+              #Assigne à la variable endThisWhile la valeur 1
+              #Éxécute la fonction grid prenant en paramètre grid
+        #Si l'élément à l'index 1 de la liste emergency est égal à "colonne"
+          #alors pour i allant de 0 à 2
+            #Si l'élément à l'index 2 de la liste emergency de la ligne i de grid est différent de pc
+              #alors grid est égal au retour de la fonction play qui prend en paramètre grid, pc, i, et l'élément à l'index 2 de la liste emergency
+              #Assigne à la variable currentTurn la valeur player
+              #Assigne à la variable endThisWhile la valeur 1
+              #Éxécute la fonction visuel prenant en paramètre grid
+        #Si l'élément à l'index 1 de la liste emergency est égal à "diagonale"
+          #alors si l'élément à l'index 1 de la liste emergency est égal à 1 
+            #pour i allant de 0 à 2
+              #Si l'élément à l'index i de la ligne i de la liste grid est différent de player 
+                #alors grid est égal au retour de la fonction play prenant en paramètre grid, pc, i, i
+                #Incremente à listOfPlayed une liste contenant [i,i]
+                #assigne à currentTurn la valeur player
+                #assigne à endThisWhile la valeur 1
+                #Éxécute la fonction visuel qui prend en paramètre grid
+          #Si l'élément à l'index 1 de la liste emergency est égal à 2
+            #alors pour i allant de 0 à 2
+              #Si l'élément 2-i à la ligne i de la liste grid est différent de player
+                #grid est égal au retour de la fonction play prenant en paramètre grid, pc, i, 2-i
+                #Incrémente à listOfPlayed la liste [i, 2-1]
+                #assigne à currentTurn la valeur player
+                #assigne à endThisWhile la valeur 1
+                #Éxécute la fonction visuel qui prend en paramètre la fonction grid
+      #Assigne à la variable randomPlayPref une liste de liste[0,0],[0,2],[2,0],[2,2]
+      #Assigne à la variable randomPlay une liste de liste[1,0],[0,1],[2,1],[1,2],[1,1]
+      #Tant que endThisWhile est égal à 0
+        #alors si la longueur de la liste randomPlayPref est différent de 0 
+          #alors la variable randomNb est égal au retour de la fonction randint prenant en paramètre 0,longueur de randomPlayPref - 1
+          #Assigne à variable ligne la valeur à l'index 0 de la ligne randomNb de la liste randomPlayPref
+          #Assigne à variable colonne la valeur à l'index 1 de la ligne randomNb de la liste randomPlayPref
+          #Supprime la ligne randomNb de la liste randomPlayPref
+        #Sinon si longueur de la liste randomPlay est différent de 0
+          #alors assigne à randomNb est égal au retour de la fonction randint prenant en paramètre 0,longueur de randomPlay - 1
+          #assigne à la variable ligne la valeur de l'élément à l'index 0 de la ligne randomNb de la liste randomPlay
+          #Assigne à variable colonne la valeur à l'index 1 de la ligne randomNb de la liste randomPlay
+          #Supprime la ligne randomNb dans la liste randomPlay
+        #Sinon
+          #Écris "draw, ggwp"
+          #Assigne à endThisWhile la valeur 1
+          #Assigne à isPlaying la valeur 0
+          #Casser
+        #si [ligne, colonne] n'est pas dans listOfPlayed
+          #alors grid est égal au retour de la fonction play prenant en paramètre grid, pc, ligne, colonne
+          #Incrementer à la liste listOfPlayed [ligne, colonne]
+          #Assigne à currentTurn la valeur player
+          #Éxécute la fonction visuel avec en paramètre grid
+          #Assigne à endThisWhile la valeur 1
+    #Si l'assertion de checkWin prenant en compte grid est vrai
+      #alors si currentTurn est égal à pc 
+        #alors écris "well done, the programm is bugged"
+      #Sinon
+        #Éxécute la fonction visuel avec le paramètre grid
+        #Écris "man... you should ask yoourself about certains things"
+      #Assigne à la variable isPlaying la valeur 0
+#Définir une fonction play qui prend en paramètre grid, player, colonne, ligne
+    #Assigne à l'élément ligne dans colonne de la liste grid, player
+    #Retourne grid
+#Définir une fonction checkWin qui prend en paramètre grid
+  #Si le premier élément de la liste à l'index 0 de la liste grid est égal au second élément de la liste à l'index 1 de la liste grid est égal au troisième élément de la liste à l'index 2 de la liste grid OU le troisième élément de la liste à l'index 0 de la liste grid est égal au second élément de la liste à l'index 1 de la liste grid est égal au premier élément de la liste à l'index 2 de la liste grid
+    #alors retourner True
+  #Pour i dans grid
+    #Si l'élément à l'index 0 de i est égal à l'élément à l'index 1 de i est égal à l'élément à l'index 2 de i
+      #retourne True
+    #Pour i allant de 0 à 2
+      #si l'élément i de la liste à l'index 0 de grid est égal à l'élément i de la liste à l'index 1 de grid est égal à l'élément i de la liste à l'index 2 de grid
+        #Retourne True
+  #Retourne False
+
+#definir une fonction checkgrid qui prend un tableau grid en parametre
+  #pour i allant de 0 à 2
+    #on defini une valeur nbX qui vaut 0
+    #on defini une valeur nb0 qui vaut 0
+    #pour j allant de 0 à 2
+      #alors si la valeur à l'indice J de grid à l'indice i est égale à X
+        #alors on incrémente nbX de 1
+      #si la valeur à l'indice J de grid à l'indice i est égale à O
+        #alors on incrémente nbO de 1
+      #si nbX est égal à 2, nb0 n'est pas égal à 1 et j est égal à 2
+        #alors on retourne une liste qui contient X, "ligne" et i
+      #si nbO est égal à 2, nbX n'est pas égal à 1 et j est égal à 2
+        #alors on retourne une liste qui contient O, "ligne" et i
+  #pour i allant de 0 à 2
+    #alors on defini une valeur nbX qui vaut 0
+    #on defini une valeur nbO qui vaut 0
+    #pour j allant de 0 à 2
+      #alors si la valeur à l'indice i de grid à l'indice j est égale à X
+        #alors on incrémente nbX de 1
+      #si la valeur à l'indice i de grid à l'indice j est égale à O
+        #alors on incrémente nbO de 1
+      #si nbX est égal à 2, nb0 n'est pas égal à 1 et j est égal à 2
+        #alors on retourne une liste qui contient X, "colonne" et i
+      #si nbO est égal à 2, nbX n'est pas égal à 1 et j est égal à 2 
+        #alors on retourne une liste qui contient O, "colonne" et i
+  #on defini une valeur nbX qui vaut 0
+  #on defini une valeur nbO qui vaut 0
+  #pour i allant de 0 à 2
+    #alors si la valeur à l'indice i de grid à l'indice i est égale à X
+      #alors on incrémente nbX de 1
+    #si la valeur à l'indice i de grid à l'indice i est égale à O
+      #alors on incrémente nbO de 1
+    #si nbX est égal à 2, nb0 n'est pas égal à 1 et i est égal à 2
+      #alors on retourne une liste qui contient X, "diagonale" et 1
+    #si nbO est égal à 2, nbX n'est pas égal à 1 et j est égal à 2
+      #alors on retourne une liste qui contient O, "diagonale" et 1
+  #on defini une valeur nbX qui vaut 0
+  #on defini une valeur nbO qui vaut 0
+  #pour i allant de 0 à 2
+    #alors si la valeur à l'indice 2-i de grid à l'indice i est égale à X
+      #alors on incrémente nbX de 1
+    #si la valeur à l'indice 2-i de grid à l'indice i est égale à O
+      #alors on incrémente nbO de 1
+    #si nbX est égal à 2, nb0 n'est pas égal à 1 et i est égal à 2
+      #alors on retourne une liste qui contient X, "diagonale" et 2
+    #si nbO est égal à 2, nbX n'est pas égal à 1 et j est égal à 2
+      #alors on retourne une liste qui contient O, "diagonale" et 2
+  #on retourne une liste contenant deux chaines de caractères vides et un 0 si grid ne rentre dans aucun des conditions de la foncion
+
+#Definir une fonction visuel prenant en paramètre un tableau et un choix
+  # affichage d'une grille : les 'X' sont représentés par 
+  #des 'X' , les 'O' par un 'O' et les cases vides par un "-" 
+  #Écris "------------------------" avec la couleur beige
+  #Pour ligne dans tableau
+    #Pour col dans ligne 
+      #Si col est égal à 'X'
+        #Écris "  X  " avec la couleur bleu et en gras qui referme la couleur bleu et gras à la fin de la chaine de caractère
+      #Sinon si col est égal à 'O'
+        #Écris "  O  " avec la couleur rose et en gras et referme la couleur rose et gras à la fin de la chaine de caractère
+      #Sinon
+        #Écris "  -  " avec la couleur beige et referme la couleur beige à la fin de la chaine de caractère
+    #Écris
+  #Écris "------------------------" avec la couleur beige
+
+#on appel la fonction morpion pour lancer le jeu
