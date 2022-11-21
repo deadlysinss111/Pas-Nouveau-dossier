@@ -10,47 +10,39 @@
   #Sous-lignée
 
 #definir la fonction conway
-#on defini une liste vide plateau
-#pour i allant de 0 à x-1
-#alors on defini une liste vide row
-#pour j allant de 0 à x-1
-#on ajoute à row une valeur i/j
-#on ajoute row a la liste plateau
-#on retourne plateau
+  #on defini une liste vide plateau
+  #pour i allant de 0 à x-1
+    #alors on defini une liste vide row
+    #pour j allant de 0 à x-1
+        #on ajoute à row une valeur i/j
+      #on ajoute row a la liste plateau
+  #on retourne plateau
 
-#definir la fonction morpion
+#definir la fonction pve
   #Assigne à une variable grid le retour de la fonction conway(3)
   #Éxécute la fonction visuel avec en paramètre grid
   #Assigne à une variable player le retour de la fonction input("O or X ?")
   #Effectuer une assertion qui vérifie si player est égal soit à 'O' soit à 'X'
   #Si player est égal à 'O'
     #alors pc est égal à 'X'
+    #on assigne a la variable colorText la couleur bleu
   #Sinon
     #pc est égal à 'O'
-  #Assigne à la variable dumbPlayer la valeur 0
+    #on assigne a la variable colorText la couleur rose
   #Si la fonction randint renvoie 1
     #alors écris "You begin"
-    #Assigne à colonne le retour de la fonction integer input demandant au joueur s'il veut "colonne ? (0, 1 ou 2)" en bleu
-    #Assigne à ligne le retour de la fonction integer input demandant au joueur s'il veut "ligne ? (0, 1 ou 2)" en bleu
-    #Si player est égal à O
-      #Alors assigne à colonne le retour de la fonction input demandant s'il veut la "colonne ? (0, 1 ou 2)" en rose
-      #Alors assigne à ligne le retour de la fonction input demandant s'il veut la "ligne ? (0, 1 ou 2)" en rose
+    #Assigne à colonne le retour de la fonction integer input demandant au joueur s'il veut "colonne ? (0, 1 ou 2)" de la couleur du signe chiosi
+    #Assigne à ligne le retour de la fonction integer input demandant au joueur s'il veut "ligne ? (0, 1 ou 2)" de la couleur du signe chiosi
     #Execute la fonction play avec les paramètres grid, player, ligne et colonne
     #Assigne à la variable currentTurn la valeur pc
-    #--------------------------------------------
-    #Si le deuxième élément de la liste à l'index 2 de la liste grid est différent de player
-      #alors éxécuter la fonction play avec les paramètres grid, pc, 1, 1
-      #Assigne à dumbPlayer la valeur 1
   #Sinon
     #Écrire "npc starts"
     #Assigne à la variable colonne la valeur 1
     #Assigne à la variable ligne la valeur 1
     #Execute la fonction play avec les paramètres grid, player, ligne et colonne
     #Assigne à la variable currentTurn la valeur player
-    #Éxécute la fonction visuel avec en paramètre grid
+  #Éxécute la fonction visuel avec en paramètre grid
   #Assigne à la variable listOfPlayed une liste dans une liste qui contient les termes ligne colonne
-  #Si dumbPlayer est égal à 1
-    #Incrémente à la liste listOfPlayed une liste contenant [1,1]
   #Assigne à la variable isPlaying la valeur 1
   #Tant que isPlaying est égal à 1
     #Si currentTurn est égal à player
@@ -61,18 +53,13 @@
             #Ajoute à fullGrid la valeur 1
       #Si fullGrid est égal à 9
         #Écris "draw, ggwp"
-        #Assigne à endThisWhile la valeur 1
         #Assigne à isPlaying la valeur 0
         #Casse
-      #Si player est égal à 'X'
-        #alors assigne colonne au retour de la fonction integer input demandant au joueur s'il veut "colonne ? (0, 1 ou 2)" en bleu
-        #Assigne à ligne le retour de la fonction integer input demandant au joueur s'il veut "ligne ? (0, 1 ou 2)" en bleu
-    #Si player est égal à O
-        #assigne à colonne le retour de la fonction input demandant s'il veut la "colonne ? (0, 1 ou 2)" en rose
-        #assigne à ligne le retour de la fonction input demandant s'il veut la "ligne ? (0, 1 ou 2)" en rose
+      #assigne à colonne le retour de la fonction input demandant s'il veut la "colonne ? (0, 1 ou 2)" en rose
+      #assigne à ligne le retour de la fonction input demandant s'il veut la "ligne ? (0, 1 ou 2)" en rose
       #Si la liste [ligne, colonne] se trouve dans listOfPlayed
         #alors écrire "someone already played here :thinking:"
-      #Sinon si colonne est strictement supérieur à 2 ou ligne est strictement supérieur à 2
+      #Sinon si colonne ou ligne sont ne sont pas un entier entre 0 et 2 compris
         #Écrire "fin frérot... tu es cringe"
       #Sinon
         #Execute la fonction play avec les paramètres grid, player, ligne et colonne
@@ -165,9 +152,68 @@
         #Éxécute la fonction visuel avec le paramètre grid
         #Écris "man... you should ask yoourself about certains things"
       #Assigne à la variable isPlaying la valeur 0
+
+#Définir une fonction pvp
+  #Assigne à grid le retour de la fonction conway prenant en paramètre 3
+  #Assigne à la variable listOfPlayed une liste vide
+  #Éxécute la fonction visuel prenant en paramètre grid et "nothing"
+  #Assigner à player le retour de la fonction input demandant "player 1 : " + bcolors.HEADER + ' O ' + bcolors.ENDC + 'or' + bcolors.OKBLUE + ' X ' + bcolors.ENDC + '?')
+  #Assertion si player est égal à 'O' ou player est égal 'X'
+    #Si player est égal à 'O'
+      #Alors playerTwo est égal à 'X'
+    #Sinon playerTwo est égal à 'O'
+  #Si le retour de randint prenant en paramètre 0 et 1 est égal à 1
+    #Écris en blanc et en gras "player 1 begins"
+    #Assigne à currentTurn la valeur player
+  #Sinon
+    #Écris en blanc et en gras "player 2 begins"
+    #Assigne à currentTurn la valeur playerTwo
+  #Assigne à la variable isPlaying la valeur 1
+  #Tant que isPlaying est égal à 1
+    #Alors assigne fullGrid la valeur 0
+    #Pour i dans grid
+      #Pour j dans in
+        #Si j est égal à 'X' ou j est égal à 'O'
+          #Incrémente à la grid la valeur 1
+    #Si fullGrid est égal à 9
+      #Alors écris "draw, ggwp"
+      #Assigne à isPlaying la valeur 0
+      #Casse la boucle
+    #Si currentTurn est égal à player
+      #Alors assigne la variable column est égal au retour de la fonction input demandant en bleu "column ? (0, 1 ou 2)" 
+      #Assigne à la variable row le retour de la fonction input demandant en bleu "row ? (0, 1 ou 2)"
+      #Si [row, column] se trouve dans listOfPlayed
+        #Alors écris "someone already played here :thinking:"
+      #Sinon si column n'est pas entre 0 et 2 compris ou row n'est pas entre 0 et 2 compris ou le type de column n'est pas un integer ou le type de row n'est pas un integer
+        #Alors écris "fin frérot... tu es cringe"
+      #Sinon
+        #Assigne à grid le retour de la fonction play prenant enparamètre grid, player, row et column
+        #Incrémente à la liste listOfPlayed une liste [row, column]
+        #Assigne à currentTurn la valeur playerTwo
+    #Sinon
+      #Alors assigne la variable column est égal au retour de la fonction input demandant en bleu "column ? (0, 1 ou 2)" 
+      #Assigne à la variable row le retour de la fonction input demandant en bleu "row ? (0, 1 ou 2)"
+      #Si [row, column] est dnas listOfPlayed
+        #Alors écrire "someone has already played here"
+      #Sinon si column n'est pas entre 0 et 2 compris ou row n'est pas entre 0 et 2 compris ou le type de column n'est pas un integer ou le type de row n'est pas un integer
+        #alors écrire "fin frérot... tu es cringe"
+      #Sinon
+        #On assigne à grid le retour de la fonction play avec les paramètres grid, playerTwo, row et column
+        #On ajoute à listOfPlayed [row, column]
+        #On assigne à currentTurn la valeur de player
+    #On appel la fonction visuel avec les paramètres grid et une chaîne de caractère qi n'est ni X ni O
+    #Si le retourn de la fonction checkWin avec le paramètre grid est vrai
+      #Alors si currentTurn est égal à player
+        #Alors on écris "player 2 won"
+      #Sinon
+        #Alors on écris "player 1 won"
+      #On assigne 0 à isPlaying
+
+
 #Définir une fonction play qui prend en paramètre grid, player, colonne, ligne
     #Assigne à l'élément ligne dans colonne de la liste grid, player
     #Retourne grid
+
 #Définir une fonction checkWin qui prend en paramètre grid
   #Si le premier élément de la liste à l'index 0 de la liste grid est égal au second élément de la liste à l'index 1 de la liste grid est égal au troisième élément de la liste à l'index 2 de la liste grid OU le troisième élément de la liste à l'index 0 de la liste grid est égal au second élément de la liste à l'index 1 de la liste grid est égal au premier élément de la liste à l'index 2 de la liste grid
     #alors retourner True
@@ -179,7 +225,7 @@
         #Retourne True
   #Retourne False
 
-#definir une fonction checkgrid qui prend un tableau grid en parametre
+#definir une fonction checkGrid qui prend un tableau grid en parametre
   #pour i allant de 0 à 2
     #on defini une valeur nbX qui vaut 0
     #on defini une valeur nb0 qui vaut 0
@@ -229,8 +275,6 @@
   #on retourne une liste contenant deux chaines de caractères vides et un 0 si grid ne rentre dans aucun des conditions de la foncion
 
 #Definir une fonction visuel prenant en paramètre un tableau et un choix
-  # affichage d'une grille : les 'X' sont représentés par 
-  #des 'X' , les 'O' par un 'O' et les cases vides par un "-" 
   #Écris "------------------------" avec la couleur beige
   #Pour ligne dans tableau
     #Pour col dans ligne 
