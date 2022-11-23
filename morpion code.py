@@ -351,6 +351,8 @@ def start():
     pve()
   elif choice == "1v1":
     pvp()
+  elif choice=="amogus":
+    print("sus")
   else:
     print("fin frérot, tu es cringe")
 
