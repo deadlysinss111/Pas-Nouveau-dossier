@@ -74,7 +74,7 @@ def pve():
       row = int(input(textColor + "row ? (0, 1 ou 2)"))
       if [row, column] in listOfPlayed:
         print("someone already played here :thinking:")
-      elif not(0 <= column < 2) or not (0 <= row < 2):
+      elif not(0 <= column <= 2) or not (0 <= row <= 2):
         print("fin frérot... tu es cringe")
       else:
         grid = play(grid, player, row, column)
@@ -226,7 +226,7 @@ def pvp():
       row = int(input(textColorOne +"row ? (0, 1 ou 2)"))
       if [row, column] in listOfPlayed:
         print("someone already played here :thinking:")
-      elif 0 > column > 2 or 0 > row > 2 or type(column) != int or type(row) != int:
+      elif 0 > column or 0 > row or column >2 or row >2 or type(column) != int or type(row) != int:
         print("fin frérot... tu es cringe")
       else:
         grid = play(grid, player, row, column)
@@ -237,7 +237,7 @@ def pvp():
       row = int(input(textColorTwo + "row ? (0, 1 ou 2)"))
       if [row, column] in listOfPlayed:
         print("someone already played here :thinking:")
-      elif column > 2 or row > 2 or type(column) != int or type(row) != int:
+      elif 0>column or 0> row or column > 2 or row > 2 or type(column) != int or type(row) != int:
         print("fin frérot... tu es cringe")
       else:
         grid = play(grid, playerTwo, row, column)
